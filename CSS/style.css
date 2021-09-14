@@ -1,0 +1,108 @@
+/* width */
+::-webkit-scrollbar 
+{
+    width: 10px;
+    border-radius: 50px;
+}
+
+/* Track */
+::-webkit-scrollbar-track 
+{
+    background: #dddddd;
+    /* border-radius: 50px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track:hover
+{
+    box-shadow: inset 0 0 5px grey; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb 
+{
+    width: 5px;
+    background: #888;
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover 
+{
+    background: #666666;
+    border-radius: 50px;
+}
+
+*, body, h1, span
+{
+    font-family: 'harrington';
+}
+
+p2
+{
+    font-size: 14pt;
+}
+
+a
+{
+    color: blue;
+}
+
+a:hover:not(.navbarNoShow)
+{
+    color: #6200d1;
+}
+
+.headderImage
+{
+    position: absolute;
+
+    margin: none;
+
+    z-index: -1;
+    left: 0px;
+    width: 100%;
+    min-height: 500px;
+    float: initial;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-image: url('../images/Pyramids.jpg');
+}
+
+.headderTitle
+{
+    position: relative;
+    margin: auto;
+    width: 400px;
+
+    padding: 5px;
+
+    font-size: 31pt;
+}
+
+.floatleft
+{
+    float: left;
+}
+
+.homepageContentBox
+{
+    height: 1500px;
+    background-color: #cccccc;
+    padding: 15px;
+}
+
+.homepageCube
+{
+    border-radius: 10px;
+
+    margin: 10px;
+    padding: 10px;
+
+    width: 150px;
+    height: 150px;
+}

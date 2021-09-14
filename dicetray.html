@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Virtuial Dice Tray</Title>
+        <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+        <style>
+            /* width */
+            ::-webkit-scrollbar 
+            {
+                width: 10px;
+                border-radius: 50px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track 
+            {
+                background: #00000000;
+                border-radius: 50px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track:hover
+            {
+                box-shadow: inset 0 0 5px grey; 
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb 
+            {
+                width: 5px;
+                background: #888;
+                border-radius: 50px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover 
+            {
+                background: #555;
+                border-radius: 50px;
+            }
+
+            *
+            {
+                scroll-behavior: smooth;
+                font-family: 'harrington';
+            }
+
+            button
+            {
+                border-radius: 25%;
+                float: left;
+                margin: 2px;
+
+                width: 68px;
+                height: 64px;
+                border: none;
+                background-color: #ececec;
+
+                cursor: pointer;
+            }
+
+            img.d
+            {
+                max-width: 55px;
+                max-height: 55px;
+            }
+
+            img.md
+            {
+                max-width: 40px;
+                max-height: 40px;
+            }
+
+            #diceButtons
+            {
+                position: absolute;
+                bottom: 5px;
+                background-color: gray;
+                border-radius: 20px;
+                padding: 5px;
+                margin: 5px;
+                width: 155px;
+            }
+
+            div.roll
+            {
+                position: relative;
+                width: 85px;
+                height: 80px;
+                background-color: #686868;
+                border-radius: 10px;
+                margin: 5px;
+            }
+
+            img.roll
+            {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                
+                width: 20px;
+            }
+            
+            span.roll
+            {
+                position: absolute;
+                top: 25px;
+                left: 5px;
+                font-size: 35px;
+                margin: 1px;
+            }
+
+            #rollContainer
+            {
+                overflow-x: hidden;
+                overflow-y: scroll;
+                width: 100%;
+                height: 425px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="rollContainer">
+
+        </div>
+
+        <div id="diceButtons">
+            <div>
+                <button onclick="roll('d4')" id="d4"><img class="d" src="images/Dice Icons/d4.png" alt="d4"></button>
+                <button onclick="roll('d6')" id="d6"><img class="d" src="images/Dice Icons/d6.png" alt="d6"></button>
+                <button onclick="roll('d8')" id="d8"><img class="d" src="images/Dice Icons/d8.png" alt="d8"></button>
+                <button onclick="roll('d10')" id="d10"><img class="d" src="images/Dice Icons/d10.png" alt="d10"></button>
+                <button onclick="roll('d12')" id="d12"><img class="d" src="images/Dice Icons/d12.png" alt="d12"></button>
+                <button onclick="roll('d20')" id="d20"><img class="d" src="images/Dice Icons/d20.png" alt="d20"></button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div>
+                <button onclick="roll('md4')" id="md4">M<img class="md" src="images/Dice Icons/d4.png" alt="md4"></button>
+                <button onclick="roll('md6')" id="md6">M<img class="md" src="images/Dice Icons/d6.png" alt="md6"></button>
+                <button onclick="roll('md8')" id="md8">M<img class="md" src="images/Dice Icons/d8.png" alt="md8"></button>
+                <button onclick="roll('md10')" id="md10">M<img class="md" src="images/Dice Icons/d10.png" alt="md10"></button>
+                <button onclick="roll('md12')" id="md12">M<img class="md" src="images/Dice Icons/d12.png" alt="md12"></button>
+                <button onclick="roll('md20')" id="md20">M<img class="md" src="images/Dice Icons/d20.png" alt="md20"></button>
+            </div>
+        </div>
+
+        <script>
+            function roll(dice)
+            {
+                var elm = document.createElement("div");
+                elm.classList.add("roll");
+
+                var img = document.createElement("img");
+                img.classList.add("roll");
+
+                var txt = document.createElement("span");
+                txt.classList.add("roll");
+
+                var randomN;
+                switch (dice)  
+                {
+                    case 'd4':
+                        randomN = Math.floor(Math.random() * 4) + 1;
+                        img.src = "images/Dice Icons/d4.png";
+                    break;
+                        
+                    case 'd6':
+                        randomN = Math.floor(Math.random() * 6) + 1;
+                        img.src = "images/Dice Icons/d6.png";
+                    break;
+                        
+                    case 'd8':
+                        randomN = Math.floor(Math.random() * 8) + 1;
+                        img.src = "images/Dice Icons/d8.png";
+                    break;
+                        
+                    case 'd10':
+                        randomN = Math.floor(Math.random() * 10) + 1;
+                        img.src = "images/Dice Icons/d10.png";
+                    break;
+                        
+                    case 'd12':
+                        randomN = Math.floor(Math.random() * 12) + 1;
+                        img.src = "images/Dice Icons/d12.png";
+                    break;
+                        
+                    case 'd20':
+                        randomN = Math.floor(Math.random() * 20) + 1;
+                        img.src = "images/Dice Icons/d20.png";
+                    break;
+
+
+
+                    case 'md4':
+                        randomN = Math.floor(Math.random() * 4) + 1;
+                        img.src = "images/Dice Icons/d4.png";
+                        if (randomN == 3) 
+                        {
+                            randomN = 2;
+                        }
+                    break;
+                        
+                    case 'md6':
+                        randomN = Math.floor(Math.random() * 6) + 1;
+                        img.src = "images/Dice Icons/d6.png";
+                        if (randomN == 2) 
+                        {
+                            randomN = 3;
+                        }
+
+                        if (randomN == 5) 
+                        {
+                            randomN = 4;
+                        }
+                    break;
+                        
+                    case 'md8':
+                        randomN = Math.floor(Math.random() * 8) + 1;
+                        img.src = "images/Dice Icons/d8.png";
+
+                        if ((randomN == 3) || (randomN == 5) || (randomN == 6)) 
+                        {
+                            randomN = 4;
+                        }
+                    break;
+                        
+                    case 'md10':
+                        randomN = Math.floor(Math.random() * 10) + 1;
+                        img.src = "images/Dice Icons/d10.png";
+
+                        if ((randomN == 4) || (randomN == 6) || (randomN == 7)) 
+                        {
+                            randomN = 5;
+                        }
+                    break;
+                        
+                    case 'md12':
+                        randomN = Math.floor(Math.random() * 12) + 1;
+                        img.src = "images/Dice Icons/d12.png";
+
+                        if ((randomN == 5) || (randomN == 7) || (randomN == 8)) 
+                        {
+                            randomN = 6;
+                        }
+                    break;
+                        
+                    case 'md20':
+                        randomN = Math.floor(Math.random() * 20) + 1;
+                        img.src = "images/Dice Icons/d20.png";
+                    break;
+                }
+
+                var box = document.querySelector('#rollContainer');
+
+                txt.innerHTML = randomN;
+
+                box.appendChild(elm);
+                elm.appendChild(img);
+                elm.appendChild(txt);
+                
+                box.scrollTop = box.scrollHeight;
+            }
+            
+        </script>
+    </body>
+</html>
